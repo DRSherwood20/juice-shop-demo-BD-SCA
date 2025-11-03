@@ -42,8 +42,8 @@ jobs:
         uses: blackduck-inc/black-duck-security-scan@805cbd09e806b01907bbea0f990723c2bb85abe9
         with:
           ### ---------- BLACKDUCK SCA SCANNING: REQUIRED FIELDS ----------
-          blackducksca_url: ${{ https://sca.field-test.blackduck.com/ }}
-          blackducksca_token: ${{ YzFhNjQ5MDQtNTA1MS00M2RiLTgyYTEtYzhlMDAzMTMxNzE4OjI1NDAwNWZjLTQwNmUtNDliNS1iZjJiLTE2M2U0N2Y2N2VhOA== }}
+          blackducksca_url: https://sca.field-test.blackduck.com/ 
+          blackducksca_token: YzFhNjQ5MDQtNTA1MS00M2RiLTgyYTEtYzhlMDAzMTMxNzE4OjI1NDAwNWZjLTQwNmUtNDliNS1iZjJiLTE2M2U0N2Y2N2VhOA== 
           blackducksca_fixpr_enabled: true
           blackducksca_prComment_enabled: true
           blackducksca_reports_sarif_create: true
