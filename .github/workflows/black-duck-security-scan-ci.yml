@@ -30,9 +30,19 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
+      - name: Setup Java JDK
+        users: actions/setup-java@4
+        with: 
+          java-version: 21
+          distribution: temurin
+          cache: Maven
+      - name: Maven Build
+        run: mvn -B DskipTests package
       - name: Black Duck SCA scan
-        uses: blackduck-inc/black-duck-security-scan@805cbd09e806b01907bbea0f990723c2bb85abe9
-          ### ---------- BLACKDUCK SCA SCANNING: REQUIRED FIELDS ----------
+        uses: blackduck-inc/black-duck-security-scan@v2
+        env: 
+          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
+        with:
           blackducksca_url: https://sca.field-test.blackduck.com/ 
           blackducksca_token: YzFhNjQ5MDQtNTA1MS00M2RiLTgyYTEtYzhlMDAzMTMxNzE4OjI1NDAwNWZjLTQwNmUtNDliNS1iZjJiLTE2M2U0N2Y2N2VhOA== 
           blackducksca_fixpr_enabled: true
